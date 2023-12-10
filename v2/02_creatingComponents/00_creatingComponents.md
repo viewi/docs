@@ -52,7 +52,7 @@ Now you can use it as a tag in any other component's template: `<Counter />`
 
 Layouts are components that have `html` tag and special tag `<slot>` for placing the content of parent component. For example:
 
-`viewi-app/Components/Views/Layouts/Layout.php`
+`viewi-app/Components/Views/Layouts/Layout.html`
 
 ```html
 <!DOCTYPE html>
@@ -72,6 +72,21 @@ Layouts are components that have `html` tag and special tag `<slot>` for placing
 </html>
 ```
 
+`viewi-app/Components/Views/Layouts/Layout.php`
+
+```php
+<?php
+
+namespace Components\Views\Layouts;
+
+use Viewi\Components\BaseComponent;
+
+class Layout extends BaseComponent
+{
+    public string $title = 'Viewi'; // default title
+}
+```
+
 And then any other components can reuse it like this:
 
 ```html
@@ -82,6 +97,94 @@ And then any other components can reuse it like this:
 
 Here `<h1>$title</h1>` will be placed instead of `<slot></slot>` in your Layout component. Also you can pass properties `title="$title"` to the Layout so it can use it in its code logic or render in its template.
 
-## Creating a CountPage component
+`ViewiScripts` is a special component that is responsible for reactivity in browser. It is optional and can be omitted if you do not wish to have reactive application in your browser. For example, for rendering emails, etc.
 
-Now let us create a CountPage component.
+## Creating a CounterPage component
+
+Now let us create a CounterPage component.
+
+`viewi-app/Components/Views/Pages/CounterPage.php`
+
+```php
+<?php
+
+namespace Components\Views\Pages;
+
+use Viewi\Components\BaseComponent;
+
+class CounterPage extends BaseComponent
+{
+}
+```
+
+`viewi-app/Components/Views/Pages/CounterPage.html`
+
+```html
+<Layout title="Counter">
+    <h1>Counter</h1>
+    <div class="mui-container-fluid">
+        <Counter />
+    </div>
+</Layout>
+```
+
+If you render `CounterPage` component, the result will be next:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Counter</title>
+</head>
+
+<body>
+    <div id="content">
+        <h1>Counter</h1>
+        <div class="mui-container-fluid">
+            <button class="mui-btn mui-btn--accent">-</button>
+            <span class="mui--text-dark mui--text-title">0</span>
+            <button class="mui-btn mui-btn--accent">+</button>
+        </div>
+    </div>
+    <script async defer src="/viewi-default/viewi.js"></script>
+</body>
+
+</html>
+```
+
+## Assigning component to specific route
+
+Viewi supports routing and will automatically render components based on assigned url or route rule.
+
+Le us assign `CounterPage` component to `/counter` url so every time user navigates to that url in the browser he will receive HTML content of that page.
+
+File with all assigned routes is located here:
+
+`viewi-app/routes.php`
+
+To add the component simply use this syntax:
+
+```php
+// add using at the top of the file
+use Components\Views\Pages\CounterPage;
+
+// ...
+
+// add new route
+$router->get('/counter', CounterPage::class);
+```
+
+Please make sure you add your routes before `404` (Page not found) handler, otherwise your component will not be reachable.
+
+```php
+$router->get('/counter', CounterPage::class);
+// ...
+
+// '*' (wildcard syntax to catch any url) handler should be at the end
+$router
+    ->get('*', NotFoundPage::class)
+    ->transform(function (Response $response) {
+        return $response->withStatus(404, 'Not Found');
+    });
+```
