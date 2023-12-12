@@ -1,5 +1,15 @@
 # Installation
 
+## Requirements
+
+```
+PHP >= 8.0
+```
+
+```
+Node.js >= 12
+```
+
 ## Install a Viewi Package
 
 ```
