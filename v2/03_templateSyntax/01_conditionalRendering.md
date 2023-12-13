@@ -67,7 +67,7 @@ Will result to:
 
 **Please note:** `else` block should be right after another `if` or `else-if` block.
 
-# Grouping with `template`
+## Grouping with `template`
 
 You can group a couple of elements into one conditional block by using `template`.
 

@@ -29,7 +29,7 @@ The result:
 You can find the list of all available events at 
 <a href="https://developer.mozilla.org/en-US/docs/Web/Events" target="_blank" rel="noopener noreferrer">Event reference</a>.
 
-# Component's method as an event handler
+## Component's method as an event handler
 
 You can use component's method as an event handler:
 
@@ -54,7 +54,7 @@ The result:
 
 <GreetExample />
 
-# Passing arguments
+## Passing arguments
 
 You can also pass arguments into the method:
 
@@ -79,7 +79,7 @@ The result:
 
 <GreetByNameExample />
 
-# Event object
+## Event object
 
 Sometimes you also need to access the original DOM event in your statement. For that purpose use `$event` variable or argument.
 
@@ -113,7 +113,7 @@ class EventHandling extends BaseComponent
 
 **Please note:** if you already have in your component property `$event`, then you will have to use `{$_component->event}` in order to use the template. `$event` is a magic variable that contains reference to the DOM event.
 
-# Dynamic event
+## Dynamic event
 
 Well, if you really do not know what event it will be, you can use a dynamic syntax: 
 

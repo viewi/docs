@@ -34,7 +34,7 @@ Will result to:
 </div>
 ```
 
-# `foreach` and `if` combinations
+## `foreach` and `if` combinations
 
 You are free to use `foreach` and `if` (`else-if`, `else`) on the same element. But keep in mind that the order matters: firstly will be evaluated whatever it is declared first. For example, this will check `if` condition first, and if it is `true` then will run `foreach`:
 
@@ -52,7 +52,7 @@ And this will run `foreach` first, and then check `if` condition for each iterat
 </div>
 ```
 
-# `foreach` and `template`
+## `foreach` and `template`
 
 `foreach` can be easily used in combination with `template` to group elements for each iteration:
 
