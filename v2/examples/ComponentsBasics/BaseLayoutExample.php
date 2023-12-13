@@ -1,6 +1,6 @@
 <?php
 
-namespace Components\Views\Counter;
+namespace ExamplesV2\ComponentsBasics;
 
 use Viewi\Components\BaseComponent;
 

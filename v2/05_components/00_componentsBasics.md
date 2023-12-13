@@ -236,3 +236,52 @@ Or with provided content:
 Will generate:
 
 <button>Save</button>
+
+## Using with if and foreach
+
+You can use `foreach` with components as well as `if`, `else`, `else-if`:
+
+Let's say you have a `PostComponent` component:
+
+```php
+class PostComponent extends BaseComponent
+{
+    public string $content;
+}
+```
+
+```html
+<p>$content</p>
+```
+
+You can use it with `foreach`:
+
+```php
+class ComponentsBasics extends BaseComponent
+{
+    public array $posts = [
+        'Viewi is awesome!',
+        'Lorem ipsum dolor sit amet'
+    ];
+}
+```
+
+```html
+<PostComponent foreach="$posts as $post" content="$post"></PostComponent>
+```
+
+Will generate:
+
+Viewi is awesome!
+
+Lorem ipsum dolor sit amet
+
+And this:
+
+```html
+<PostComponent if="true" content="Viewi is awesome!"></PostComponent>
+```
+
+Will generate:
+
+Viewi is awesome!
