@@ -139,7 +139,7 @@ The result:
     <i>Karolina</i> sent you a message.
 </NotificationExample>
 
-## Named Slots
+### Named Slots
 
 Sometimes you will need to pass different contents into different places to render. A good example for this case is layout. Consider we want something like this:
 
@@ -205,3 +205,34 @@ The result:
     </slotContent>
 </BaseLayoutExample
 
+### Fallback Content
+
+You can set a default content in case if no content is provided. Just place fallback content inside a `slot` tag:
+
+```html
+<button>
+    <slot>Submit</slot>
+</button>
+```
+
+Then use it without content:
+
+```html
+<SubmitButton></SubmitButton>
+```
+
+Will generate:
+
+<button>Submit</button>
+
+Or with provided content:
+
+```html
+<SubmitButton>
+    Save
+</SubmitButton>
+```
+
+Will generate:
+
+<button>Save</button>
