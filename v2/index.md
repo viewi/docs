@@ -2,7 +2,8 @@
 
 *Viewi v2*
 
-1. [Get started](./00_getStarted/00_getStarted.md)
+0. [Introduction](./00_getStarted/00_introduction.md)
+1. [Get started](./00_getStarted/01_getStarted.md)
 2. [Installation](./01_installation/00_installation.md)
 3. [Creating Components](./02_creatingComponents/00_creatingComponents.md)
 4. [Template Syntax](./03_templateSyntax/00_templateSyntax.md)

@@ -60,7 +60,7 @@ After that just run your server or use a built in PHP development server:
 php -S localhost:8000
 ```
 
-and open your browser at http://localhost:8000/. If everything was done correctly you should be able to see the Starter application.
+and open your browser at `http://localhost:8000/`. If everything was done correctly you should be able to see the Starter application.
 
 ```warning
 Your Viewi logic will be exposed to the browser. Treat it as you would treat any other javascript code. And remember not to use any secret(s) as it will become publicly visible. Isolate your frontend application!
