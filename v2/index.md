@@ -13,3 +13,4 @@
 8. [Form input bindings](./04_eventAndModelHandling/01_formInputBindings.md)
 9. [Components Basics](./05_components/00_componentsBasics.md)
 10. [Components and services](./05_components/01_componentsAndServices.md)
+11. [Components In-Depth](./05_components/02_componentsInDepth.md)
