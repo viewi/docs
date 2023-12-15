@@ -15,3 +15,5 @@
 10. [Components and services](./05_components/01_componentsAndServices.md)
 11. [Components In-Depth](./05_components/02_componentsInDepth.md)
 12. [Routing](./06_routing/00_routing.md)
+13. [Data fetching and HTTP client](./07_dataFetching/00_dataFetching.md)
+13. [HTTP interceptors](./07_dataFetching/01_httpInterceptors.md)
