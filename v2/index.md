@@ -18,5 +18,6 @@
 13. [Routing](./06_routing/00_routing.md)
 14. [Lazy loading routes and components](./06_routing/01_lazyLoading.md)
 15. [Guards and Middleware](./06_routing/02_middleware.md)
-16. [Data fetching and HTTP client](./07_dataFetching/00_dataFetching.md)
-17. [HTTP interceptors](./07_dataFetching/01_httpInterceptors.md)
+16. [Reusing layouts](./06_routing/03_reusingLayouts.md)
+17. [Data fetching and HTTP client](./07_dataFetching/00_dataFetching.md)
+18. [HTTP interceptors](./07_dataFetching/01_httpInterceptors.md)
