@@ -102,3 +102,11 @@ To register callbacks simply defined them with `then`:
 ```php
  $httpCall->then(callable $onSuccess, callable $onError = null, callable $always = null);
 ```
+
+### Caching data during server-side rendering
+
+All your requests that were made on the server during SSR are being cached and sent with the initial HTML page.
+
+This allows you to efficiently run the hydration process on the client-side by reusing cached requests.
+
+After the application is activated, further requests will be made as usual.
