@@ -21,3 +21,4 @@
 16. [Reusing layouts](./06_routing/03_reusingLayouts.md)
 17. [Data fetching and HTTP client](./07_dataFetching/00_dataFetching.md)
 18. [HTTP interceptors](./07_dataFetching/01_httpInterceptors.md)
+19. [Portals](./08_portals/00_portals.md)
