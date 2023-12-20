@@ -27,3 +27,4 @@
 23. [Portals](./08_portals/00_portals.md)
 24. [Viewi assets](./09_assets/00_viewiAssets.md)
 25. [CSS bundle](./09_assets/01_cssBundle.md)
+26. [Public configuration](./10_config/00_publicConfig.md)
