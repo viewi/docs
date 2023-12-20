@@ -54,7 +54,14 @@ Also make sure you didn't forget about the autoload:
 require __DIR__ . '/vendor/autoload.php';
 ```
 
-After that just run your server or use a built in PHP development server:
+By default, Viewi is configured to use files watcher. To run it, go into your JavaScript project at `viewi-app/js` and run the NPM watch command:
+
+```
+cd viewi-app/js
+npm run watch
+```
+
+Open another terminal and run your server or use a built in PHP development server:
 
 ```
 php -S localhost:8000
