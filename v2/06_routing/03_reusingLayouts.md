@@ -39,7 +39,7 @@ class Layout extends BaseComponent
     {
         $this->seconds++;
         <<<'javascript'
-        console.log('PanelLayout time ' + $this.seconds);
+        console.log('Layout time ' + $this.seconds);
         javascript;
     }
 }
@@ -59,7 +59,7 @@ class Layout extends BaseComponent
     <div id="sidebar">
         <MenuBar />
     </div>
-    <h2><i>Panel: $seconds $title</i></h2>
+    <h2><i>Layout time: $seconds</i></h2>
     <DemoContainer>
         <slot></slot>
     </DemoContainer>
@@ -69,7 +69,7 @@ class Layout extends BaseComponent
 </html>
 ```
 
-Now if use this layout in two different pages:
+And use this layout in two different pages:
 
 `HomePage`
 
@@ -98,7 +98,7 @@ Now, if you navigate from one page into another, a `Layout` component will prese
 
 **Important**
 
-Only top level components are reused if next page is also using it.
+Only top level components are reused and only if next page is also using it.
 
 For example, `Layout` will is shared because both pages are using it at the top level:
 
