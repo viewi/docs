@@ -203,7 +203,7 @@ The result:
     <slotContent name="footer">
         <p>Some footer links and copyright</p>
     </slotContent>
-</BaseLayoutExample
+</BaseLayoutExample>
 
 ### Fallback Content
 

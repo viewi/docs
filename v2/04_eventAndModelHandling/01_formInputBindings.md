@@ -142,6 +142,8 @@ class EventHandling extends BaseComponent
 
 The result:
 
+<SelectBindExample />
+
 ### Multiple select and array binding
 
 ```php

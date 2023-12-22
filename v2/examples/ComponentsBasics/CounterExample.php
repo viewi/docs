@@ -4,7 +4,7 @@ namespace ExamplesV2\ComponentsBasics;
 
 use Viewi\Components\BaseComponent;
 
-class Counter extends BaseComponent
+class CounterExample extends BaseComponent
 {
     public int $count = 0;
 
