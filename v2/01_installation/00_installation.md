@@ -30,10 +30,9 @@ It will generate for you the default code for using Viewi as a standalone applic
 
 If you specified folder parameter, your components will be located in that folder, otherwise it will use one of these: `viewi-app/` or `src/ViewiApp/`.
 
-```warning
+**Important**
 To use it with the Apache or NGINX you need to make sure that all requests are coming to the index.php file by using rewrite rules.
-```
 
-```warning
+**Important**
 Viewi does not support running from a subdirectory as sub url path. Please adapt your application accordingly.
-```
+

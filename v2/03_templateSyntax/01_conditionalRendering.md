@@ -1,6 +1,6 @@
 # Conditional Rendering
 
-## 'if' directive
+## `if` directive
 
 To render the block based on condition use `if` attribute with an expression. The block will be rendered only if the condition is `true`:
 
@@ -18,7 +18,7 @@ Will result to:
 </div>
 ```
 
-## 'else-if' directive
+## `else-if` directive
 
 You can extend conditional rendering by using `else-if` attribute with an expression. The block will be rendered only if the condition is `true` and previous `if` or `else-if` blocks are `false`:
 
