@@ -1,6 +1,6 @@
 # CSS bundle
 
-The `CssBundle` component is a special component that will help you with arranging your SCC styles.
+The `CssBundle` component is a special component that will help you with arranging your CSS styles.
 
 It includes features like code minification, purging unused CSS rules, combining files together, and rendering them inline.
 

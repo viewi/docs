@@ -32,7 +32,7 @@ To output raw HTML use a double mustache syntax, like this:
 <div>{{$html}}</div>
 ```
 
-[!WARNING]  
+**WARNING**  
 Rendering HTML on your website can be very dangerous due to <a target="_blank" href="https://en.wikipedia.org/wiki/Cross-site_scripting" rel="noopener noreferrer">XSS vulnerabilities</a>. Use it only on trusted content.
 
 ## Expressions
