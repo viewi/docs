@@ -30,3 +30,4 @@
 26. [Public configuration](./10_config/00_publicConfig.md)
 27. [Frameworks integration and bridge](./11_frameworks/00_bridge.md)
 28. [ReactPHP](./11_frameworks/01_reactPHP.md)
+29. [CodeIgniter4](./11_frameworks/02_codeIgniter4.md)
