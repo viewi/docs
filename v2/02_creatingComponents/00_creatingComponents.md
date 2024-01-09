@@ -66,7 +66,7 @@ Layouts are components that have `html` tag and special tag `<slot>` for placing
     <div id="content">
         <slot></slot>
     </div>
-    <ViewiScripts />
+    <ViewiAssetss />
 </body>
 
 </html>
@@ -97,7 +97,7 @@ And then any other components can reuse it like this:
 
 Here `<h1>$title</h1>` will be placed instead of `<slot></slot>` in your Layout component. Also you can pass properties `title="$title"` to the Layout so it can use it in its code logic or render in its template.
 
-`ViewiScripts` is a special component that is responsible for reactivity in browser. It is optional and can be omitted if you do not wish to have reactive application in your browser. For example, for rendering emails, etc.
+`ViewiAssetss` is a special component that is responsible for reactivity in browser. It is optional and can be omitted if you do not wish to have reactive application in your browser. For example, for rendering emails, etc.
 
 ## Creating a CounterPage component
 
