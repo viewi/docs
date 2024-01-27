@@ -4,6 +4,8 @@ When it comes to using Viewi with other frameworks, it is crucial to provide a m
 
 Viewi offers you to implement that mechanism simply by defining a bridge class.
 
+`Viewi\Bridge\IViewiBridge`
+
 ```php
 interface IViewiBridge
 {
@@ -20,6 +22,40 @@ interface IViewiBridge
     function request(Request $request): mixed;
 }
 ```
+
+## Using your own bridge
+
+Once you have defined your own logic for Viewi bridge, you need to register it in Viewi application:
+
+```php
+/**
+ * @var Viewi\App $app
+ */
+
+$bridge = new MyFrameworkBridge();
+$app->factory()->add(Viewi\Bridge\IViewiBridge::class, function () use ($bridge) {
+    return $bridge;
+});
+```
+
+Factory `add` method accepts the type or interface of the service and the factory constructor function:
+
+`$factory` - `(Viewi\Engine $engine): Instance<YourType>`, for example `(Viewi\Engine $engine): Instance<IViewiBridge>`
+
+`Viewi\Container\Factory`
+
+```php
+class Factory
+{
+    public function add(string $name, callable $factory);
+
+    public function get(string $name);
+
+    public function has(string $name);
+}
+```
+
+## Default bridge
 
 Viewi provides a default bridge as well and you can reuse some of its logic.
 
