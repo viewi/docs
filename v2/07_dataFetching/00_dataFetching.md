@@ -26,8 +26,9 @@ class PostPage extends BaseComponent
     public string $email = '';
     public string $name = '';
     public string $message = '';
+    public bool $notFound = false;
 
-    public function __construct(private HttpClient $http)
+    public function __construct(private HttpClient $http, private ClientRoute $route)
     {
     }
 
@@ -49,8 +50,15 @@ class PostPage extends BaseComponent
             ])
             ->then(function ($response) {
                 // message has been sent successfully
-            }, function () {
+            }, function (Response $response) {
                 // handle error
+                if ($response && $response->status) {
+                    if ($response->status === 404) {
+                        $this->notFound = true;
+                        $this->title = 'Not found';
+                        $this->route->setResponseStatus($response->status);
+                    }
+                }
             });
     }
 }
@@ -67,7 +75,7 @@ This will throw an error in the browser:
         // This will throw an error in the browser
         // since JSON object does not have such method
         $post->getMetaTags();
-    }, function () {
+    }, function (Response $response) {
         // handle error
     });
 ```
@@ -79,7 +87,7 @@ This will throw an error in the browser:
     ->get("/api/post/1")
     ->then(function ($post) {
         $this->post = $post;
-    }, function () {
+    }, function (Response $response) {
         // handle error
     });
 ```

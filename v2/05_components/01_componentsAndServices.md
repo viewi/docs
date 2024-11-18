@@ -9,9 +9,10 @@ There it is a list of available lifecycle hooks at this moment:
  Hook            | Description                                                                                                                                         
 -----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------
  init        | Runs immediately a component is instantiated\. Can accept dependency injected services and route parameters\.
+ mounting    | Runs before passing attribute values to the component.
  mounted     | Runs right after passed through attribute values have been set to the component\.
+ rendered    | Runs after components is rendered on the page. Client side only.
  destroy     | Runs when instance is destroyed\. Use it to unsubscribe from events, etc\. Client side only\.
-
 
 ## Services and Models
 
@@ -172,3 +173,99 @@ The result:
 
 <ComponentAExample />
 <ComponentBExample />
+
+## Using `Inject` attribute
+
+You can also set dependencies to component`s properties using `Inject` attribute and avoid passing arguments in the constructor:
+
+`#[Inject(Scope)]`
+
+```php
+class MyPage
+{
+    #[Inject(Scope::SINGLETON)]
+    public Localization $localization;
+    // or
+    #[Inject(Scope::SCOPED)]
+    public Localization $localization;
+}
+```
+
+Instance will be created and assigned to that property after component is created.
+
+Useful when using traits.
+
+## Parent and child dependencies
+
+Viewi allows you to set your dependencies on component level and pass it down to its nested components.
+
+For example, make a new `FormContext` instance:
+
+```html
+<ActionForm>
+    <TextInput />
+    <TextInput />
+    <TextInput />
+</ActionForm>
+```
+
+`#[Inject(Scope::COMPONENT)]` - makes a new instance and shares it with all of its children and nested components.
+
+```php
+class ActionForm extends BaseComponent
+{
+    public function __construct(
+        #[Inject(Scope::COMPONENT)]
+        private FormContext $form
+    ) {
+    }
+//...
+```
+
+And now the same instance will be available in all nested components:
+
+`#[Inject(Scope::PARENT)]` - gets the instance from its parent
+
+```php
+class TextInput extends BaseComponent
+{
+    public function __construct(
+        #[Inject(Scope::PARENT)]
+        private ?FormContext $form = null
+    ) {
+        // $form is same as in its parent
+    }
+```
+
+## Provide and inject
+
+Alternative way is to use provide and inject methods:
+
+```php
+class ActionForm extends BaseComponent
+{
+    public function init()
+    {
+        $this->formContext = new FormContext();
+        // provide ActionForm using $this->formContext
+        $this->provide(ActionForm::class, $this->formContext);
+    }
+//...
+```
+
+```php
+class TextInput extends BaseComponent
+{
+    public function init()
+    {
+        // get ActionForm from its parent if provided.
+        /**
+         * @var ?FormContext $formContext
+         */
+        $formContext = $this->inject(ActionForm::class);
+    }
+//...
+```
+
+If you do not set the instance on the parent level, `null` will be returned;
+

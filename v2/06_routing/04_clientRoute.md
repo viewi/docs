@@ -10,6 +10,7 @@ class ClientRoute
     public function getUrl(): ?string;
     public function getUrlPath(): ?string;
     public function getQueryParams(): array;
+    public function urlWatcher(): Subscriber;
 }
 ```
 
@@ -48,4 +49,55 @@ class MemberGuardNoAccess implements IMIddleware
         $this->route->navigate('/login'); // redirect to the login page
     }
 }
+```
+
+## Watch URL change and get notified
+
+```php
+class MyComponent implements BaseComponent
+{
+    public string $activeLink = '';
+    public ?Subscription $pathSubscription = null;
+
+    public function __construct(private ClientRoute $route)
+    {
+    }
+
+    public function init()
+    {
+        $this->pathSubscription = $this->route->urlWatcher()->subscribe(function (string $urlPath) {
+            $this->activeLink = $urlPath;
+        });
+    }
+
+    public function destroy()
+    {
+        $this->pathSubscription->unsubscribe();
+    }
+```
+
+## Set response status for SSR
+
+You can set the response status code from your component.
+
+For example, if some data does not exist in your database, you would want to return the component with `404` status code:
+
+```php
+class ContentPage extends BaseComponent
+{
+    //...
+    public function init()
+    {
+        $this->http->get("/api/content?path=my-page")
+            ->then(function (?PageModel $page) {
+                $this->page = $page;
+            }, function (Response $response) {
+                if ($response && $response->status) {
+                    if ($response->status === 404) {
+                        $this->title = "Page not found";
+                        $this->route->setResponseStatus(404);
+                    }
+                }
+            });
+    }
 ```

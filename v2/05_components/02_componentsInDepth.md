@@ -104,6 +104,39 @@ class NavigationDrawer extends BaseComponent
 }
 ```
 
+## References for child components
+
+Same works with child component reference. For example, there is a component
+
+```php
+class ValidationMessage extends BaseComponent
+{
+    public string $error = '';
+}
+```
+
+And we want to access it from its parent. Just use `#myName` syntax
+
+```html
+Order details:
+...
+Errors:
+<ValidationMessage #validationMessages />
+```
+
+And now use it
+
+```php
+class OrderEdit extends BaseComponent
+{
+    public ?ValidationMessage $validationMessages = null;
+    
+    public function validate()
+    {
+        // ...
+        $this->validationMessages->error = 'Something has happened';
+```
+
 ## Model and two-way data binding on components
 
 ```html

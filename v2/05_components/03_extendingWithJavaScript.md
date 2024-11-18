@@ -12,15 +12,17 @@ As it was already mentioned in a introduction section, your PHP components are b
 `/viewi-app/js/app` folder. This folder is getting overridden each time you build your Viewi project.
 
 But there is also another folder that is created specifically for your custom code:
-`/viewi-app/js/modules`.
+`/viewi-app/js/modules/your_name`.
 
-This folder has multiple sub folders:
+`your_name` is your application name from configuration `$viewiConfig = (new AppConfig('your_name'))`.
 
-`main` - for all of your component without lazy loading group. See routing sections for more details.
+Keep/move your custom JavaScript implementation relative to this folder.
 
-And one folder for each lazy loading group you have. Folder name matches the group name, for example: `YourLazyGroupName` folder for `YourLazyGroupName` group.
+The name of your application should be ([a-zA-Z-_]*). 'default' is default app name.
 
 By default the source code looks like this:
+
+`index.ts`
 
 ```ts
 export const modules = {};
@@ -28,7 +30,14 @@ export const modules = {};
 
 It is a typescript but it is optional and you can use a simple JavaScript.
 
+## Standardizing purpose and Viewi package support. 
+
+For example, code from some package `/vendor/package/src/viewi-app/js/modules/your_app_name` will get exported to
+`viewi-app/js/exports/your_app_name` if you use that package.
+
 ## Extending your component
+
+Mark your component with `ExtendWithJs` attribute.
 
 Imagine you that have this component:
 
@@ -39,7 +48,9 @@ namespace Components\Views\CustomJs;
 
 use Viewi\Components\Attributes\LazyLoad;
 use Viewi\Components\BaseComponent;
+use Viewi\Builder\Attributes\ExtendWithJs;
 
+#[ExtendWithJs]
 class CustomJsPage extends BaseComponent
 {
     public string $title = 'Custom JS page with lazy loading';
@@ -68,12 +79,12 @@ npm install marked
 
 And now you want to use that.
 
-Open your `/viewi-app/js/modules/main/index.ts` file and modify it. You can create folders and other files in the `modules` folder, it is up to you.
+Open your `/viewi-app/js/modules/your_name/index.ts` file and modify it. You can create folders and other files in the `modules` folder, it is up to you.
 
 To extend `CustomJsPage` page we need to import it from our `app` folder:
 
 ```ts
-import { CustomJsPage } from '../../app/main/components/CustomJsPage';
+import { CustomJsPage } from '../../app/main/components/Components/Views/CustomJs/CustomJsPage';
 ```
 
 Then we need our `marked` library:
@@ -105,7 +116,7 @@ Final result:
 
 ```ts
 import { marked } from 'marked';
-import { CustomJsPage } from '../../app/main/components/CustomJsPage';
+import { CustomJsPage } from '../../app/main/components/Views/CustomJs/CustomJsPage';
 
 CustomJsPage.prototype.getMarkedHtml = function (this: CustomJsPage) {
     return marked(this.markText);
@@ -174,3 +185,9 @@ Always wrap you custom output into another tag.
     <div>{{getMarkedHtml($markText)}}</div>
 </Layout>
 ```
+
+## Complete JavaScript rewrite
+
+If you want to implement JavaScript version completely from scratch, mark your component with `CustomJs` attribute.
+
+Export your JavaScript implementation in your `index.ts` file.

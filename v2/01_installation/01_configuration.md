@@ -107,3 +107,13 @@ public array $includes = []
 Using `$config->production()` will set up `devMode` to `false`, `minifyJs`, and `appendVersionPath` to `true`.
 
 Additionally, you can set up `$config->combine()` to combine templates JSON file with JavaScript bundle file and avoid additional requests.
+
+You can build project with NPM:
+
+`npm run build`
+
+or using php:
+
+Go to your Viewi application:
+
+`php build.php`

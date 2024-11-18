@@ -19,7 +19,7 @@ interface IViewiBridge
     function file_get_contents(string $filename): string | false;
     
     // request - Server-side internal request handler. Request that comes from Viewi component.
-    function request(Request $request): mixed;
+    function request(Request $request, Engine $currentEngine): mixed;
 }
 ```
 
@@ -33,7 +33,7 @@ Once you have defined your own logic for Viewi bridge, you need to register it i
  */
 
 $bridge = new MyFrameworkBridge();
-$app->factory()->add(Viewi\Bridge\IViewiBridge::class, function () use ($bridge) {
+$app->factory()->add(Viewi\Bridge\IViewiBridge::class, function (Engine $engine) use ($bridge) {
     return $bridge;
 });
 ```
@@ -90,7 +90,7 @@ class DefaultBridge implements IViewiBridge
         return file_get_contents($filename);
     }
 
-    public function request(Request $request): mixed
+    public function request(Request $request, Engine $currentEngine): mixed
     {
         if ($request->isExternal) {
             return $this->externalRequest($request);

@@ -120,6 +120,39 @@ $router
     });
 ```
 
+## Route sections
+
+You can group routes with similar prefixes:
+
+```php
+$router->get('/admin', Dashboard::class);
+$router->get('/admin/content', PageList::class);
+```
+
+Same as:
+
+```php
+$router->section('admin', function (Router $router) {
+    $router->get('/', Dashboard::class);
+    $router->get('/content', PageList::class);
+}
+```
+
+## Mark route as lazy
+
+If you want to separate routes into multiple asset bundles, you can use `lazy` grouping method:
+
+```php
+$router->lazy('admin', function (Router $router) {
+    $router->get('/admin', Dashboard::class);
+    $router->get('/admin/content', PageList::class);
+});
+```
+
+Now these components will be loaded only if you navigate to any of these routes.
+
+Same effect can get with `LazyLoad` attribute.
+
 ## More examples
 
 ```php
