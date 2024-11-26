@@ -1,6 +1,6 @@
 # WebSocket client
 
-`WebsocketClient` is a service that helps you with websocket communization on client side:
+`WebsocketClient` is a service that helps you with websocket communication on client side:
 
 ```php
 #[Singleton]
