@@ -8,7 +8,7 @@ There it is a list of available lifecycle hooks at this moment:
 
  Hook            | Description                                                                                                                                         
 -----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------
- init        | Runs immediately a component is instantiated\. Can accept dependency injected services and route parameters\.
+ init        | Runs immediately after component is instantiated\.
  mounting    | Runs before passing attribute values to the component.
  mounted     | Runs right after passed through attribute values have been set to the component\.
  rendered    | Runs after components is rendered on the page. Client side only.
