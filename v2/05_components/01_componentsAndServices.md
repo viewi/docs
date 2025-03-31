@@ -8,11 +8,34 @@ There it is a list of available lifecycle hooks at this moment:
 
  Hook            | Description                                                                                                                                         
 -----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------
- init        | Runs immediately after component is instantiated\.
- mounting    | Runs before passing attribute values to the component.
- mounted     | Runs right after passed through attribute values have been set to the component\.
- rendered    | Runs after components is rendered on the page. Client side only.
- destroy     | Runs when instance is destroyed\. Use it to unsubscribe from events, etc\. Client side only\.
+ init        | Runs immediately after component is instantiated\. Optionally, you can implement `OnInit` interface to get started.
+ mounting    | Runs before passing attribute values to the component. Interface `OnMounting`.
+ mounted     | Runs right after passed through attribute values have been set to the component\. Interface `OnMounted`.
+ rendered    | Runs after components is rendered on the page. Client side only. Interface `OnRendered`.
+ destroy     | Runs when instance is destroyed\. Use it to unsubscribe from events, etc\. Client side only\. Interface `OnDestroy`.
+
+For example:
+
+```php
+<?php
+
+namespace Application\Components\Views\Demo;
+
+use Viewi\Components\BaseComponent;
+use Viewi\Components\Lifecycle\OnInit;
+
+class MyComponent extends BaseComponent implements OnInit
+{
+    public function init()
+    {
+        // make initial request, etc.
+    }    
+}
+```
+
+Implementing hook interfaces is optional. As long as you have one of these methods, it is a hook.
+
+Viewi is matching hooks by method names, not by having an interface.
 
 ## Services and Models
 
