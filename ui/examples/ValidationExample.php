@@ -12,7 +12,7 @@ class ValidationExample
     {
         return ValidationRules::rules($this->model)
             ->required('FirstName', ($this->localize)('register.validation.first-name-required'))
-            ->required('Email', 'Phone', ($this->localize)('login.validation.email-required'))
+            ->required('Email', ($this->localize)('login.validation.email-required'))
             ->email('Email', ($this->localize)('register.validation.wrong-email'))
             ->required('Password', ($this->localize)('login.validation.password-required'))
             ->required('PasswordConfirmation', ($this->localize)('register.validation.password-confirmation-required'))
