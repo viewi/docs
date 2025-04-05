@@ -35,7 +35,7 @@ class IntroExample extends BaseComponent
             new TableColumn('Id'),
             new TableColumn('FirstName'),
             new TableColumn('Active'),
-            new TableColumn('CreatedOn', 'Created', 'DateColumn'),
+            new TableColumn('CreatedOn', 'Created'),
         ];
         for ($i = 1; $i <= 10; $i++) {
             $model = new ExampleModel();

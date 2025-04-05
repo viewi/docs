@@ -156,6 +156,12 @@
                         <Icon if="{$item->Active}" name="bi-check2-circle" />
                     </td>
                 </slotContent>
+
+                <slotContent name="column_CreatedOn" data="$item">
+                    <td>
+                        {formatDate($item->CreatedOn)}
+                    </td>
+                </slotContent>
             </DataTable>
         </div>
     </div>
