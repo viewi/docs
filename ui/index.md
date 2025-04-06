@@ -7,3 +7,4 @@
 - Components
 
     1. [Accordion](./components/01_accordion.md)
+    2. [Tabs](./components/02_tab.md)
