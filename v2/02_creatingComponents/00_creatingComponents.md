@@ -157,7 +157,7 @@ If you render `CounterPage` component, the result will be next:
 
 Viewi supports routing and will automatically render components based on assigned url or route rule.
 
-Le us assign `CounterPage` component to `/counter` url so every time user navigates to that url in the browser he will receive HTML content of that page.
+Le us assign `CounterPage` component to `/counter` url so every time user navigates to that url in the browser it will receive HTML content of that page.
 
 File with all assigned routes is located here:
 

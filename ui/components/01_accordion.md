@@ -86,7 +86,7 @@ Accordion is designed to save space by splitting the content into logical parts 
 
 `title` - sets the title of the tab. Default: '' (empty).
 
-`open` - sets he open state of the tab. Default: `false`.
+`open` - sets the open state of the tab. Default: `false`.
 
 ```html
 <Accordion>

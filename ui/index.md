@@ -8,3 +8,5 @@
 
     1. [Accordion](./components/01_accordion.md)
     2. [Tabs](./components/02_tab.md)
+    3. [Modals](./components/03_modals.md)
+    4. [Dialogs](./components/04_dialogs.md)

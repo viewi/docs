@@ -84,7 +84,7 @@ A Tabs UI component is a widely used user interface element in web and mobile ap
 
 `title` - sets the title of the tab. Default: '' (empty).
 
-`active` - sets he open state of the tab. Default: `false`.
+`active` - sets the open state of the tab. Default: `false`.
 
 ```html
 <Tabs>
