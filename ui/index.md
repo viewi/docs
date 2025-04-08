@@ -10,3 +10,4 @@
     2. [Tabs](./components/02_tab.md)
     3. [Modals](./components/03_modals.md)
     4. [Dialogs](./components/04_dialogs.md)
+    5. [Alerts](./components/05_alerts.md)

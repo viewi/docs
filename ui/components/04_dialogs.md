@@ -32,8 +32,7 @@ class ListPage extends BaseComponent
 {
     public function __construct(
         private ModalService $modal
-    ) {
-    }
+    ) {}
 
     public function onDelete($item)
     {
