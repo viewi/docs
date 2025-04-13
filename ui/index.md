@@ -11,3 +11,4 @@
     3. [Modals](./components/03_modals.md)
     4. [Dialogs](./components/04_dialogs.md)
     5. [Alerts](./components/05_alerts.md)
+    5. [Notifications](./components/06_notifications.md)
