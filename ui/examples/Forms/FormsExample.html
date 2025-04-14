@@ -1,0 +1,22 @@
+<div if="{$example === 'intro'}">
+    <TextInput label="First Name" type="text" model="$firstName" />
+    <TextInput label="Last Name" type="text" model="$lastName" />
+    <div>
+        You have entered: {$firstName} {$lastName}
+    </div>
+</div>
+<div if="{$example === 'textarea'}">
+    <TextInput label="Summary" textarea rows="6" model="$summary" />
+</div>
+<div if="{$example === 'placeholder'}">
+    <TextInput label="First Name" type="text" placeholder="Enter your first name" hint="Example: Mike, Josh, etc."
+        model="$firstName" />
+</div>
+<div if="{$example === 'slot'}">
+    <TextInput label="Email" type="text" model="$email">
+        <div class="form-text">
+            Forgot your password?
+            <a href="/reset-password" class="text-secondary">Reset it here</a>
+        </div>
+    </TextInput>
+</div>
