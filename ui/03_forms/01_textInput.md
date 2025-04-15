@@ -152,6 +152,8 @@ Use `inset` property to remove the margin from the wrapper:
 
 `inset` - (optional), boolean, makes the height of the input smaller.
 
+`isInvalid` - (optional), boolean, marks the input as invalid, adds error highlight.
+
 ## Events
 
 `(input)` - event that happens when the element gets user input.

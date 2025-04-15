@@ -16,4 +16,5 @@
 - Forms & Inputs
 
     1. [Text Input](./03_forms/01_textInput.md)
-    2. [Action Form](./03_forms/09_actionForm.md)
+    2. [Select Input](./03_forms/02_selectInput.md)
+    3. [Action Form](./03_forms/09_actionForm.md)

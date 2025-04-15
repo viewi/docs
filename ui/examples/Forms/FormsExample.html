@@ -31,3 +31,28 @@
     <TextInput label="First Name" type="text" inset model="$firstName" />
     <TextInput label="Last Name" type="text" inset model="$lastName" />
 </div>
+
+<div if="{$example === 'select'}">
+    <SelectInput items="$options" label="Number" model="$selectedOption" />
+    <div>
+        You have selected: $selectedOption
+    </div>
+</div>
+<div if="{$example === 'select-hero'}">
+    <SelectInput items="$items" itemTitle="Name" label="Chose Hero" model="$selectedHero" />
+    <div if="$selectedHero">
+        You have selected: {$selectedHero->Name} ({$selectedHero->Id})
+    </div>
+</div>
+<div if="{$example === 'select-hero-assoc'}">
+    <SelectInput associative items="$itemsAssoc" label="Chose Hero" model="$selectedHeroAssoc" />
+    <div>
+        You have selected: $selectedHeroAssoc
+    </div>
+</div>
+<div if="{$example === 'select-hero-nullable'}">
+    <SelectInput nullable items="$items" itemTitle="Name" label="Chose Hero" model="$selectedHero" />
+    <div if="$selectedHero">
+        You have selected: {$selectedHero->Name} ({$selectedHero->Id})
+    </div>
+</div>
