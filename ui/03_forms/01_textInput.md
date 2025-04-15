@@ -18,6 +18,7 @@ A Text Input component is a UI element within a form or interface that allows us
 
 ```php
 <?php
+
 class FormsExample extends BaseComponent
 {
     public string $firstName = '';
@@ -67,12 +68,56 @@ And hint with `hint` property:
 
 If you need to extend the content of the input, you can use the slot feature:
 
+<div>
+    <FormsExample example="slot" />
+</div>
+
 ```html
-<TextInput 
-    label="First Name" 
-    type="text"
-    model="$firstName" 
->
+<TextInput label="Email" type="text" model="$email">
+    <div class="form-text">
+        Forgot your password?
+        <a href="/reset-password" class="text-secondary">Reset it here</a>
+    </div>
+</TextInput>
+```
+
+## Input Class
+
+Use `inputClass` to set up additional class list for the `input` tag:
+
+<div>
+    <FormsExample example="inputClass" />
+</div>
+
+```html
+<TextInput label="Email" type="text" inputClass="bg-primary-subtle" model="$email" />
+```
+
+## Input Class
+
+Use `wrapperClass` to set up additional class list for the wrapper:
+
+<div>
+    <FormsExample example="wrapperClass" />
+</div>
+
+```html
+<TextInput label="First Name" type="text" wrapperClass="mb-3" model="$firstName" />
+<TextInput label="Last Name" type="text" wrapperClass="mb-3" model="$lastName" />
+```
+
+## Inset
+
+
+Use `inset` property to remove the margin from the wrapper:
+
+<div>
+    <FormsExample example="inset" />
+</div>
+
+```html
+<TextInput label="First Name" type="text" inset model="$firstName" />
+<TextInput label="Last Name" type="text" inset model="$lastName" />
 ```
 
 ## Properties

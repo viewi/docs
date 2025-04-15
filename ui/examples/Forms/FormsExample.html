@@ -16,7 +16,18 @@
     <TextInput label="Email" type="text" model="$email">
         <div class="form-text">
             Forgot your password?
-            <a href="/reset-password" class="text-secondary">Reset it here</a>
+            <a href="/reset-password" class="text-secondary" (click)="$event->preventDefault()">Reset it here</a>
         </div>
     </TextInput>
+</div>
+<div if="{$example === 'inputClass'}">
+    <TextInput label="Email" type="text" inputClass="bg-primary-subtle" model="$email" />
+</div>
+<div if="{$example === 'wrapperClass'}">
+    <TextInput label="First Name" type="text" wrapperClass="mb-3" model="$firstName" />
+    <TextInput label="Last Name" type="text" wrapperClass="mb-3" model="$lastName" />
+</div>
+<div if="{$example === 'inset'}">
+    <TextInput label="First Name" type="text" inset model="$firstName" />
+    <TextInput label="Last Name" type="text" inset model="$lastName" />
 </div>

@@ -14,4 +14,7 @@ class FormsExample extends BaseComponent
     
     //example 2
     public string $summary = '';
+
+    //example slot
+    public string $email = '';
 }
