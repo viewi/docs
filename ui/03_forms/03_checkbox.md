@@ -1,6 +1,6 @@
 # Checkbox
 
-The select UI component, commonly used in web and application interfaces, is a dropdown menu that allows users to choose one option (or sometimes multiple options) from a predefined list.
+A checkbox UI component is a graphical element in a user interface that allows users to make a binary choice, typically between selecting or deselecting an option.
 
 ## Usage
 
