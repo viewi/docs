@@ -56,3 +56,12 @@
         You have selected: {$selectedHero->Name} ({$selectedHero->Id})
     </div>
 </div>
+<div if="{$example === 'checkbox'}">
+    <CheckBox id="RemeberMe" label="Remember Me" model="$rememberMe" />
+    <div if="$rememberMe">
+        You will be remembered!
+    </div>
+    <div else>
+        Sure, do not worry, we will keep you safe!
+    </div>
+</div>

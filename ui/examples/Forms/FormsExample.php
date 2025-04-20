@@ -61,4 +61,7 @@ class FormsExample extends BaseComponent
         'wonder-woman' => 'Wonder Woman'
     ];
     public string $selectedHeroAssoc = '';
+
+    // example checkbox
+    public bool $rememberMe = false;
 }
