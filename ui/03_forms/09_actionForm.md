@@ -26,3 +26,22 @@ class FormExample extends BaseComponent
 }
 ```
 
+## Properties
+
+`id` - (optional), id attribute of the form.
+
+`method` - (optional), method attribute of the form.
+
+`action` - (optional), action attribute for the form.
+
+`classList` - (optional), additional classes for the form.
+
+`autocomplete` - (optional), autocomplete attribute for the form.
+
+`rules` - (optional), validation rules for the form.
+
+## Events
+
+`(submit)` - event that happens when the form gets submitted.
+
+

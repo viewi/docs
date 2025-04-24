@@ -15,6 +15,21 @@ use Viewi\UI\ViewiUI;
 $viewiConfig->use(ViewiUI::class)
 ```
 
+Include UI CSS files into your bundle:
+
+`/viewi-ui/bs-theme.css, /viewi-ui/bootstrap.css, /viewi-ui/ui.css`.
+
+```html
+<CssBundle
+    links="{[
+        '/viewi-ui/bs-theme.css',
+        '/viewi-ui/bootstrap.css',
+        '/viewi-ui/ui.css'
+    ]}"
+    minify purge combine 
+/>
+```
+
 ## Example
 
 ```php

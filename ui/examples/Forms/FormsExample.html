@@ -65,3 +65,18 @@
         Sure, do not worry, we will keep you safe!
     </div>
 </div>
+<div if="{$example === 'validation'}">
+    <ActionForm #loginForm (submit)="onSubmit" rules="$validationRules">
+        <TextInput label="FirstName" name="FirstName" type="text" model="$user->FirstName" />
+        <TextInput label="Email" name="Email" type="text" model="$user->Email" />
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </ActionForm>
+</div>
+<div if="{$example === 'validation-fallback'}">
+    <ActionForm #loginForm (submit)="onSubmit" rules="$validationRules">
+        <TextInput label="FirstName" hint="Do not use your Email as a First Name" name="FirstName" type="text" model="$user->FirstName" />
+        <TextInput label="Email" name="Email" type="text" model="$user->Email" />
+        <ValidationMessage #generalMessages fallback />
+        <button type="submit" class="btn btn-primary mt-3">Submit</button>
+    </ActionForm>
+</div>
