@@ -80,3 +80,14 @@
         <button type="submit" class="btn btn-primary mt-3">Submit</button>
     </ActionForm>
 </div>
+<div if="{$example === 'base-input'}">
+    <BaseInput name="Summary" label="Summary">
+        <textarea 
+            placeholder="The summary of this page" 
+            id="Summary" 
+            rows="5" 
+            model="$summary"
+            class="w-100"
+        ></textarea>
+    </BaseInput>
+</div>
