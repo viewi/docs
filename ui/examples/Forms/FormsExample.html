@@ -74,7 +74,8 @@
 </div>
 <div if="{$example === 'validation-fallback'}">
     <ActionForm #loginForm (submit)="onSubmit" rules="$validationRules">
-        <TextInput label="FirstName" hint="Do not use your Email as a First Name" name="FirstName" type="text" model="$user->FirstName" />
+        <TextInput label="FirstName" hint="Do not use your Email as a First Name" name="FirstName" type="text"
+            model="$user->FirstName" />
         <TextInput label="Email" name="Email" type="text" model="$user->Email" />
         <ValidationMessage #generalMessages fallback />
         <button type="submit" class="btn btn-primary mt-3">Submit</button>
@@ -82,12 +83,25 @@
 </div>
 <div if="{$example === 'base-input'}">
     <BaseInput name="Summary" label="Summary">
-        <textarea 
-            placeholder="The summary of this page" 
-            id="Summary" 
-            rows="5" 
-            model="$summary"
-            class="w-100"
-        ></textarea>
+        <textarea placeholder="The summary of this page" id="Summary" rows="5" model="$summary"
+            class="w-100"></textarea>
     </BaseInput>
+</div>
+<div if="{$example === 'rich-text'}">
+    <BaseInput name="Summary" id="Summary" label="Summary">
+        <RichEditor placeholder="The summary of this page" id="Summary" model="$summary" />
+    </BaseInput>
+    <div>
+        <h4>Preview</h4>
+        <div>{{$summary}}</div>
+    </div>
+</div>
+<div if="{$example === 'code-editor'}">
+    <BaseInput name="Summary" id="Summary" label="Summary">
+        <RichEditor codeEditor placeholder="The summary of this page" id="Summary" model="$summary" />
+    </BaseInput>
+    <div>
+        <h4>Preview</h4>
+        <div>{{$summary}}</div>
+    </div>
 </div>
