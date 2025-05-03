@@ -23,3 +23,7 @@
     6. [Code Editor](./03_forms/07_codeEditor.md)
     7. [Action Form](./03_forms/09_actionForm.md)
     8. [Validation](./03_forms/10_validation.md)
+
+- Data Table
+
+    1. [Essentials](./04_dataTable/01_essentials.md)
