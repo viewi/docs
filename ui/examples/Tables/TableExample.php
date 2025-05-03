@@ -12,19 +12,26 @@ class TableExample extends BaseComponent
 
     public array $columns = [];
     public array $items = [];
-    
-    public function init()
+
+    public function mounted()
     {
         $this->setUpColumns();
-        $this->prepareHeroes();        
+        $this->prepareHeroes();
     }
 
     public function setUpColumns()
     {
-        $this->columns = [
-            new TableColumn('Id'),
-            new TableColumn('Name')
-        ];        
+        if ($this->example === 'columns-title') {
+            $this->columns = [
+                new TableColumn('Id', 'Hero Unique Number'),
+                new TableColumn('Name', 'Hero Name'),
+            ];
+        } else {
+            $this->columns = [
+                new TableColumn('Id'),
+                new TableColumn('Name')
+            ];
+        }
     }
 
     public function prepareHeroes()

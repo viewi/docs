@@ -26,4 +26,5 @@
 
 - Data Table
 
-    1. [Essentials](./04_dataTable/01_essentials.md)
+    1. [Essentials](./04_dataTable/01_essentials.md)    
+    2. [Defining Columns](./04_dataTable/02_definingColumns.md)
