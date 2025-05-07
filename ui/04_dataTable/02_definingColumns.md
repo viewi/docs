@@ -71,6 +71,10 @@ The result:
 
 You can also use another component as a template for the column.
 
+The benefit of this is that you can define the template once, and use it for multiple tables.
+
+Like dates, boolean checkmark, etc.
+
 Pass it as a third argument, for example:
 
 ```php
