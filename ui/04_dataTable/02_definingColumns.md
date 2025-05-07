@@ -65,3 +65,60 @@ The result:
 <div>
     <TableExample example="columns-slot" />
 </div>
+
+
+### Template Component
+
+You can also use another component as a template for the column.
+
+Pass it as a third argument, for example:
+
+```php
+public function setUpColumns()
+{
+    // Columns definition
+    $this->columns = [
+        new TableColumn('Id', 'Hero Unique Number'),
+        // let's use HeroNameColumn component for the Name column
+        new TableColumn('Name', 'Hero Name', 'HeroNameColumn'),
+    ];        
+}
+```
+
+And `HeroNameColumn` itself should implement these structure:
+
+```php
+{
+    // current column value, e.g. value of the Name property
+    public $value = null;
+    // current list item, e.g. HeroModel instance
+    // use it if you need to implement more advanced template
+    public $data = null;
+}
+```
+
+In our case, the code will look like this:
+
+```php
+class PublishedColumn extends BaseComponent
+{
+    public ?string $value = null;
+    public ?HeroModel $data = null;
+}
+```
+
+```html
+<td class="text-center text-success">
+    <Icon name="bi-check2-circle" />
+    <div>{$value} ({$data->Id})</div>
+    <div class="mt-2">
+        {$data->Description}
+    </div>
+</td>
+```
+
+The result:
+
+<div>
+    <TableExample example="columns-template" />
+</div>
