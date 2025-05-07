@@ -1,6 +1,19 @@
 <div if="{$example === 'essentials'}">
-    <DataTable columns="$columns" items="$items" />
+  <DataTable columns="$columns" items="$items" />
 </div>
 <div if="{$example === 'columns-title'}">
-    <DataTable columns="$columns" items="$items" />
+  <DataTable columns="$columns" items="$items" />
+</div>
+<div if="{$example === 'columns-slot'}">
+  <DataTable columns="$columns" items="$items">
+    <slotContent name="column_Name" data="$item">
+      <td>
+        <div>{$item->Name} ({$item->Id})</div>
+        <div class="mt-2">{$item->Description}</div>
+      </td>
+    </slotContent>
+  </DataTable>
+</div>
+<div if="{$example === 'columns-template'}">
+  <DataTable columns="$columns" items="$items" />
 </div>

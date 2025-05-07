@@ -104,7 +104,7 @@ And `HeroNameColumn` itself should implement these structure:
 In our case, the code will look like this:
 
 ```php
-class PublishedColumn extends BaseComponent
+class HeroNameColumn extends BaseComponent
 {
     public ?string $value = null;
     public ?HeroModel $data = null;
