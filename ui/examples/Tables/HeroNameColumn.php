@@ -3,10 +3,19 @@
 namespace ExamplesUi\Tables;
 
 use ExamplesUi\HeroModel;
-use Viewi\Components\BaseComponent;
+use Viewi\Components\Attributes\IncludeAlways;
+use Viewi\Components\Lifecycle\OnMounted;
+use Viewi\UI\Components\Tables\BaseColumnTemplate;
 
-class HeroNameColumn extends BaseComponent
+#[IncludeAlways]
+class HeroNameColumn extends BaseColumnTemplate implements OnMounted
 {
-    public ?string $value = null;
-    public ?HeroModel $data = null;
+    public ?string $name = null;
+    public ?HeroModel $hero = null;
+
+    public function mounted()
+    {
+        $this->name = $this->getCurrentValue();
+        $this->hero = $this->getCurrentItem();
+    }
 }

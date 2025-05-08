@@ -121,6 +121,50 @@ class HeroNameColumn extends BaseComponent
 </td>
 ```
 
+Or, you can extend `BaseColumnTemplate` abstract class, that will have `$value` and `$data` inside.
+
+Optionally: you can use the mounted hook to reassign values to your preferred format and type.
+
+Use `getCurrentValue` and `getCurrentItem` method to get current values.
+
+Mark the component with `IncludeAlways` attribute to avoid tree shaking during the build.
+
+```php
+<?php
+
+namespace ExamplesUi\Tables;
+
+use ExamplesUi\HeroModel;
+use Viewi\Components\Attributes\IncludeAlways;
+use Viewi\Components\Lifecycle\OnMounted;
+use Viewi\UI\Components\Tables\BaseColumnTemplate;
+
+#[IncludeAlways]
+class HeroNameColumn extends BaseColumnTemplate implements OnMounted
+{
+    public ?string $name = null;
+    public ?HeroModel $hero = null;
+
+    public function mounted()
+    {
+        $this->name = $this->getCurrentValue();
+        $this->hero = $this->getCurrentItem();
+    }
+}
+```
+
+Now you can use `$name` and `$hero` instead:
+
+```html
+<td class="text-center text-success">
+  <Icon name="bi-check2-circle" />
+  <div>{$name} ({$hero->Id})</div>
+  <div class="mt-2">
+      {$hero->Description}
+  </div>
+</td>
+```
+
 The result:
 
 <div>
