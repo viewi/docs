@@ -1,3 +1,18 @@
+# Data Table - Search
+
+Data table supports searching. 
+
+Simply enable it with `search` property and assign `(search)` event.
+
+`(search)` - `(string $search): void`
+
+## Example
+
+```html
+<DataTable columns="$columns" items="$items" search (search)="onSearch" />
+```
+
+```php
 <?php
 
 namespace ExamplesUi\Tables;
@@ -6,63 +21,52 @@ use ExamplesUi\HeroModel;
 use Viewi\Components\BaseComponent;
 use Viewi\UI\Components\Tables\TableColumn;
 
-class TableExample extends BaseComponent
+class FormsExample extends BaseComponent
 {
-    public string $example = 'intro';
-
     public array $columns = [];
+    // all items
     public array $items = [];
+    // items for the table
     public array $filtered = [];
-
-    public function mounted()
+    
+    public function init()
     {
         $this->setUpColumns();
-        $this->prepareHeroes();
+        $this->prepareHeroes();        
     }
 
     public function setUpColumns()
     {
-        if ($this->example === 'columns-title') {
-            $this->columns = [
-                new TableColumn('Id', 'Hero Unique Number'),
-                new TableColumn('Name', 'Hero Name'),
-            ];
-        } elseif ($this->example === 'columns-template') {
-            $this->columns = [
-                new TableColumn('Id', 'Hero Unique Number'),
-                // let's use HeroNameColumn component for the Name column
-                new TableColumn('Name', 'Hero Name', 'HeroNameColumn'),
-            ];
-        } else {
-            $this->columns = [
-                new TableColumn('Id'),
-                new TableColumn('Name'),
-            ];
-        }
+        // Columns definition
+        $this->columns = [
+            new TableColumn('Id'),
+            new TableColumn('Name'),
+        ];        
     }
 
     public function prepareHeroes()
     {
+        // let's pretend that we got these from some API
         $hero = new HeroModel();
         $hero->Id = 1;
         $hero->Name = 'Superman';
-        $hero->Description = 'I am Superman!';
         $this->items[] = $hero;
 
         $hero = new HeroModel();
         $hero->Id = 2;
         $hero->Name = 'Batman';
-        $hero->Description = "I'm Batman!";
         $this->items[] = $hero;
 
         $hero = new HeroModel();
         $hero->Id = 3;
         $hero->Name = 'Wonder Woman';
-        $hero->Description = "Amazon forest must be protected!";
         $this->items[] = $hero;
+        
+        // display all items by default
         $this->filtered = $this->items;
     }
 
+    // handle table search event
     public function onSearch(string $filter)
     {
         $searchText = strtolower($filter);
@@ -76,3 +80,10 @@ class TableExample extends BaseComponent
         );
     }
 }
+```
+
+The result:
+
+<div>
+    <TableExample example="search" />
+</div>

@@ -17,3 +17,9 @@
 <div if="{$example === 'columns-template'}">
   <DataTable columns="$columns" items="$items" />
 </div>
+<div if="{$example === 'search'}">
+  <DataTable columns="$columns" items="$filtered" search (search)="onSearch" />
+</div>
+<div if="{$example === 'paging'}">
+  <DataTable columns="$columns" items="$filtered" paging />
+</div>

@@ -28,3 +28,5 @@
 
     1. [Essentials](./04_dataTable/01_essentials.md)    
     2. [Defining Columns](./04_dataTable/02_definingColumns.md)
+    3. [Searching](./04_dataTable/03_search.md)
+    4. [Paging](./04_dataTable/04_paging.md)
