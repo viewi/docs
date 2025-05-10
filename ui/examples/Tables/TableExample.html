@@ -21,5 +21,5 @@
   <DataTable columns="$columns" items="$filtered" search (search)="onSearch" />
 </div>
 <div if="{$example === 'paging'}">
-  <DataTable columns="$columns" items="$filtered" paging />
+  <DataTable columns="$columns" items="$paged" paging pageSize="5" total="{count($items)}" (page)="onPageChange" />
 </div>
