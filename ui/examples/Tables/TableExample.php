@@ -212,4 +212,24 @@ class TableExample extends BaseComponent
     {
         $this->paged = array_slice($this->items, $paging->entityFrom, $paging->size);
     }
+
+    public function addNew()
+    {
+        $id = count($this->items) + 1;
+        $hero = new HeroModel();
+        $hero->Id = ++$id;
+        $hero->Name = 'Ant-Man #' . $id;
+        $hero->Description = "Adventurer, Biochemist, former manager of Avengers Compound'";
+        $this->items = [...$this->items, $hero];
+    }
+
+    public function onEdit(HeroModel $hero)
+    {
+        $hero->Name = 'New ' . $hero->Name;
+    }
+
+    public function onDelete(HeroModel $hero)
+    {
+        $this->items = array_filter($this->items, fn(HeroModel $m) => $m !== $hero);
+    }
 }

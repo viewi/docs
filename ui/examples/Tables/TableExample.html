@@ -23,3 +23,9 @@
 <div if="{$example === 'paging'}">
   <DataTable columns="$columns" items="$paged" paging pageSize="5" total="{count($items)}" (page)="onPageChange" />
 </div>
+<div if="{$example === 'create'}">
+  <DataTable columns="$columns" items="$items" search add (create)="addNew" />
+</div>
+<div if="{$example === 'edit-delete'}">
+  <DataTable columns="$columns" items="$items" edit remove (edit)="onEdit" (delete)="onDelete" />
+</div>
