@@ -24,8 +24,17 @@
   <DataTable columns="$columns" items="$paged" paging pageSize="5" total="{count($items)}" (page)="onPageChange" />
 </div>
 <div if="{$example === 'create'}">
-  <DataTable columns="$columns" items="$items" search add (create)="addNew" />
+  <DataTable columns="$columns" items="$items" search add addText="Create Hero" (create)="addNew" />
 </div>
 <div if="{$example === 'edit-delete'}">
   <DataTable columns="$columns" items="$items" edit remove (edit)="onEdit" (delete)="onDelete" />
+</div>
+<div if="{$example === 'edit-inline'}">
+  <DataTable #dataTable columns="$columns" items="$items" edit editInline (save)="onSave" (edit)="preserveHero" (cancel)="onCancel" remove (delete)="onDelete">
+    <slotContent name="edit_Name" data="$item">
+      <td>
+        <TextInput inset name="Name" model="$item->Name" />
+      </td>
+    </slotContent>
+  </DataTable>
 </div>

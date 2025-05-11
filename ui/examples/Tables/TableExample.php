@@ -5,6 +5,7 @@ namespace ExamplesUi\Tables;
 use ExamplesUi\HeroModel;
 use Viewi\Components\BaseComponent;
 use Viewi\UI\Components\Pagination\PaginationModel;
+use Viewi\UI\Components\Tables\DataTable;
 use Viewi\UI\Components\Tables\TableColumn;
 
 class TableExample extends BaseComponent
@@ -15,6 +16,8 @@ class TableExample extends BaseComponent
     public array $items = [];
     public array $filtered = [];
     public array $paged = [];
+    public ?DataTable $dataTable = null;
+    public string $heroNameBeforeEdit = '';
 
     public function mounted()
     {
@@ -45,6 +48,7 @@ class TableExample extends BaseComponent
 
     public function prepareHeroes()
     {
+        $this->items = [];
         $hero = new HeroModel();
         $hero->Id = 1;
         $hero->Name = 'Superman';
@@ -231,5 +235,23 @@ class TableExample extends BaseComponent
     public function onDelete(HeroModel $hero)
     {
         $this->items = array_filter($this->items, fn(HeroModel $m) => $m !== $hero);
+    }
+
+    public function onSave(HeroModel $hero)
+    {
+        // switch off the edit mode
+        $this->dataTable->finishEdit();
+        // save the hero, in our case it's already updated
+    }
+
+    public function preserveHero(HeroModel $hero)
+    {
+        $this->heroNameBeforeEdit = $hero->Name;
+    }
+
+    public function onCancel(HeroModel $hero)
+    {
+        // cancel the edit, reset all changes if need
+        $hero->Name = $this->heroNameBeforeEdit;
     }
 }
