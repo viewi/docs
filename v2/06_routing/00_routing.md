@@ -153,6 +153,18 @@ Now these components will be loaded only if you navigate to any of these routes.
 
 Same effect can get with `LazyLoad` attribute.
 
+## Priority
+
+You can set priority of the route, the higher priority - the faster it can be resolved. And the opposite, the lower priority will make sure that route will be resolved last. By default, priority is set to `0`.
+
+For example, `ContentPage` component is handling every `GET` request. And we do not want it to override any other route, so we make it with lower priority.
+
+```php
+$router
+    ->get('*', ContentPage::class)
+    ->priority(-100);
+```
+
 ## More examples
 
 ```php
