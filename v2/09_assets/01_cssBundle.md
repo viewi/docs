@@ -32,6 +32,10 @@ Where:
 
 `inline` - optional, renders styles inline, must be used with `combine` option enabled.
 
+`name` - optional, unique name, use to append links across files with `to` property.
+
+`to` - optional, if set, links will be assigned to the appropriate bundler with the same `name` property.
+
 Imagine you have these files:
 
 `viewi-app/assets/app.css`, `viewi-app/assets/mui.css`;
@@ -62,7 +66,7 @@ You can also write:
         $title | Viewi
     </title>
     <meta charset="utf-8">
-    <CssBundle links="{['/mui.css', '/app.css']}" combine minify purge />
+    <CssBundle name="main-head" links="{['/mui.css', '/app.css']}" combine minify purge />
 </head>
 <body>
     <div id="content">
@@ -71,4 +75,12 @@ You can also write:
     <ViewiAssets />
 </body>
 </html>
+```
+
+## Appending links from different places
+
+For example, if you decide to append another `css` file to the `main-head` bundle, and you don not have access or possibility (third party module or package), you can inject additional files using `to` property:
+
+```html
+<CssBundle to="main-head" links="{['/my-own.css']}" />
 ```
