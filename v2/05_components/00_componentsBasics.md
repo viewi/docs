@@ -237,6 +237,35 @@ Will generate:
 
 <button>Save</button>
 
+## Passing data into the slot content
+
+You can pass data and use it inside your `slotContent` with `data` attribute (prop).
+
+Passing:
+
+```html
+<tr foreach="$items as $item">
+    <slot name="column_Name" data="$item">
+        <td>{$item->Name}</td>
+    </slot>
+</tr>
+```
+
+Using:
+
+```html
+<DataTable>
+    <slotContent name="column_Name" data="$item">
+        <td>
+            <div>{$item->Name} ({$item->Id})</div>
+            <div class="mt-2">
+                {$item->Description}
+            </div>
+        </td>
+    </slotContent>
+</DataTable>
+```
+
 ## Using with if and foreach
 
 You can use `foreach` with components as well as `if`, `else`, `else-if`:
@@ -285,3 +314,4 @@ And this:
 Will generate:
 
 Viewi is awesome!
+
