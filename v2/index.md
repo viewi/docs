@@ -31,6 +31,7 @@
     6. [Global methods](./05_components/06_globals.md)
     7. [Traits support](./05_components/07_traits.md)
     8. [Watch feature](./05_components/08_watch.md)
+    9. [Override component](./05_components/09_overrideComponent.md)
 
 - Routing and Middleware
 
@@ -67,3 +68,4 @@
     4. [WebSocket client](./12_extra/03_websocket.md)
     5. [Portals](./08_portals/00_portals.md)
     6. [Delay Render](./08_portals/01_delayRender.md)
+    7. [Browser session](./08_portals/02_browserSession.md)
