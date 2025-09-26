@@ -66,3 +66,4 @@
     3. [Client Timer](./12_extra/02_clientTimer.md)
     4. [WebSocket client](./12_extra/03_websocket.md)
     5. [Portals](./08_portals/00_portals.md)
+    6. [Delay Render](./08_portals/01_delayRender.md)
