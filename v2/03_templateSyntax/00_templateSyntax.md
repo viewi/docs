@@ -150,3 +150,15 @@ It happens that at some point you don not know what tag it will be during the ap
 ```html
 <$tag>Some content</$tag>
 ```
+
+## Build time expression
+
+To output expression during a build time, use a mustache with hash syntax `{# #}`.
+
+This will evaluate the code inside of it during the build process, and will put it as a raw HTML snippet. Think of it as a cache.
+
+```html
+<div>{# myExpression() #}</div>
+<div>{# htmlentities('<Blog />') #}</div>
+<pre data-lang="php">{# file_get_contents(__FILE__) #}</div>
+```
