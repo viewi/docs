@@ -19,12 +19,14 @@ composer require viewi/viewi
 ## Create a new application with Viewi CLI tool
 
 ```
-vendor/bin/viewi new [-f folder] [-a]
+vendor/bin/viewi new [-f folder] [-a] [-ns]
 ```
 
 Where `-f` folder is an optional parameter and can be omitted.
 
-Where -a means you are going to use an adapter and you do not need to modify the `index.php` file. Usually you use `-a` when installing Viewi with another framework. It is an optional parameter and can be omitted.
+Where `-a` means you are going to use an adapter and you do not need to modify the `index.php` file. Usually you use `-a` when installing Viewi with another framework. It is an optional parameter and can be omitted.
+
+Where `-ns` - Namespace for your project, default is `Components`. It is an optional parameter and can be omitted.
 
 It will generate for you the default code for using Viewi as a standalone application in one of these files: `/index.php` or `/public/index.php`.
 
